@@ -37,7 +37,8 @@
     - name: log info page copied
       debug:
         msg: "Info file is copied using {{ info_page_path }}"
-    - name: log apache started
-      debug:
-        msg: "ensured apache is statrted"
+    - name: log apache restarted
+      service: 
+        name: "{{ apache_package }}"
+        state: restarted
     
